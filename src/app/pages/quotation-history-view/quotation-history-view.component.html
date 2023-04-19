@@ -1,0 +1,100 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="feather icon-users text-warning"></i> Quotation Details</h3>
+        </div>
+        <!-- <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+          <div class="form-group mb-0">
+              <a class="btn btn-outline-primary" data-toggle="modal" data-target="#createquery"><i class="feather icon-plus-square fa-lg"></i> Raise Query</a>
+          </div>
+        </div> -->
+    </div>
+    <div class="content-body">
+      <div class="card mb-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Quotation No. :</b> {{quotationView.quotationNo}}</label>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Creation Date :</b> {{quotationView.openingDate}}</label>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Expiry Date :</b> {{quotationView.closeDate}}</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table id="querylist" class="table table-sm table-bordered table-hover mb-0" style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th style="width:12%;" class="text-center">Material Code</th>
+                      <th style="width:16%;">Material Name</th>
+                      <th style="width:16%;" class="text-center">Plant</th>
+                      <th style="width:16%;">Storage Location</th>
+                      <th style="width:12%;" class="text-right">Quantity</th>
+                      <th style="width:12%;" class="text-center">UOM</th>
+                      <th style="width:11%;" class="text-center">Price</th>
+                      <th style="width:11%;" class="text-center">Freight</th>
+                      <th style="width:11%;" class="text-center">Est.Del.Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of quotMaterialList">
+                      <td class="text-center">{{item.materialCode}}</td>
+                      <td>{{item.materialDesc}}</td>
+                      <td class="text-center">{{item.plant}}</td>
+                      <td>{{item.storageLocation}}</td>
+                      <td class="text-right">{{item.rfqQuantity}}</td>
+                      <td class="text-center">{{item.uom}}</td>
+                      <td class="p-50 text-right">{{item.tempprice}}</td>
+                      <td class="p-50 text-right">{{item.freight}}</td>
+
+                      <td class="p-50 text-right">{{item.tempestDelDate}}</td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer p-50">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-light round btn-min-width  mr-50" (click)='back()'>Back</button>
+
+              <!-- <button type="button" class="btn btn-secondary round btn-min-width btn-darken-2 shadow mr-50" (click)='back()'>Back</button> -->
+              <!-- <button type="submit" (click)="submitResult()" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="alertMsg" data-backdrop="static" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    <div class="modal-content text-center">
+      <!--Header-->
+      <!--Body-->
+      <div class="modal-body">
+        <p class="mb-2"><i
+            [ngClass]="[ alertFlag === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+        </p>
+        <h6>{{alertMessage}}</h6>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-cust-primary" (click)="okAlert()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

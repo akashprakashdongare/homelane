@@ -1,0 +1,19 @@
+<section fxLayout="column"    fxLayoutAlign="center center">
+    <h2 mat-dialog-title fxLayoutGap="20px" >
+        <i
+    
+                      class="feather icon-trash-2 font-large-4 text-danger"></i>
+    </h2>
+    <mat-dialog-content  fxLayoutAlign="center center" fxLayoutGap="10px">
+        <h6>Are you sure you want to Delete ?</h6>
+    </mat-dialog-content>
+    
+    <mat-card-actions>
+        <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-cust-primary" (click)="onConfirm('Yes')">Yes</button>
+    
+        <button type="button" class="btn btn-dark"  (click)="onConfirm('No')">No</button>
+        </div>
+    </mat-card-actions>
+    </section>
+

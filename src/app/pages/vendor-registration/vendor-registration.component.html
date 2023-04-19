@@ -1,0 +1,547 @@
+<div class="page-vendor-sign">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3 bg-left-vendor d-none d-md-block" style="height:100vh;min-height:auto;">
+            <div class="mt-0 mb-3 text-center">
+              <img src="assets/img/homelane-logo.png"/>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1 class="login-title mt-0 mb-1">Vendor Registration</h1>
+                <!-- <h1 class="login-title-2 mb-1">Create Vendor Registration</h1> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 bg-white p-0">
+            <div class="card bg-transparent border-0 rounded-0 mb-0">
+              <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 bg-transparent pb-50">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4 class="login-title">Contact Details</h4>
+                    <small class="text-powered">Please note that fields marked with <span class="text-danger">*</span>
+                      are mandatory</small>
+                  </div>
+                  <div class="col-sm-12 mt-1">
+                    <ul class="nav nav-pills">
+                      <li class="nav-item">
+                        <a  [ngClass]="[ tab===1 ? 'nav-link active' : 'nav-link']" id="base-view-vendor1" data-toggle="pill" (click)= "tab=1" href="#view-vendor1" aria-expanded="true">General Details</a>
+                      </li>
+                      <li class="nav-item" >
+                        <a  [ngClass]="[ tab===2 ? 'nav-link active' : 'nav-link']"  id="base-view-vendor2" data-toggle="pill" (click)= "tab=2" href="#view-vendor2" [ngClass] ="{'aria-expanded':tab===2}" aria-expanded="false">Bank Details</a>
+                      </li>
+                      <li class="nav-item" >
+                        <a  [ngClass]="[ tab===3 ? 'nav-link active' : 'nav-link']" id="base-view-vendor3" data-toggle="pill" (click)= "tab=3"  href="#view-vendor3" [ngClass] ="{'aria-expanded':tab===2}" aria-expanded="false">Attachments</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body page-scroll mt-1">
+                <div class="row">
+                  <div class="col-md-12">
+                      <div class="tab-content px-0 pt-0">
+                        <div *ngIf="tab===1" [ngClass]="[ tab===1 ? 'nav-link active' : 'nav-link']" role="tabpanel"  id="view-vendor1" aria-expanded="true" aria-labelledby="base-view-vendor1">
+                          <form  #tab1Form="ngForm" (ngSubmit)="submitResultTab1(tab1Form)" novalidate>
+                          <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Title <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input name="fkTittle" id="fkTittle" required #fkTittle="ngModel"  [(ngModel)]="submitObjectTab1.fkTittle" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" name="fkTittle" id="fkTittle" required #fkTittle="ngModel"  [(ngModel)]="submitObjectTab1.fkTittle"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.titleMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!fkTittle.value && fkTittle.touched || !fkTittle.value && !validTab1"  >
+                                Please enter title.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Name 1 <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="35"  name="name1" id="name1"  required #name1="ngModel"  [(ngModel)]="submitObjectTab1.name1" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!name1.value && name1.touched || !name1.value && !validTab1">
+                                Please enter name1.
+                              </span>
+                            
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Name 2 <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="35" name="name2" id="name2" required #name2="ngModel"  [(ngModel)]="submitObjectTab1.name2" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!name2.value && name2.touched || !name2.value && !validTab1" >
+                                Please enter name2.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Street <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="40" name="street" id="street" required #street="ngModel"  [(ngModel)]="submitObjectTab1.street" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!street.value && street.touched || !street.value && !validTab1" >
+                                Please enter street.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Street 2 <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="40" name="street2" id="street2" required #street2="ngModel"  [(ngModel)]="submitObjectTab1.street2" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg "  *ngIf="!street2.value && street2.touched || !street2.value && !validTab1">
+                                Please enter street 2.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Postal Code <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="10" name="postCode" id="postCode" required #postCode="ngModel"  [(ngModel)]="submitObjectTab1.postCode" type="text" class="form-control form-control-sm">
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!postCode.value && postCode.touched || !postCode.value && !validTab1">
+                                Please enter postal code.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">City <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="40" name="city" id="city" required #city="ngModel"  [(ngModel)]="submitObjectTab1.city" type="text" class="form-control form-control-sm">
+                                </div>
+                              </div>
+                              <span class="errormsg " *ngIf="!city.value && city.touched || !city.value && !validTab1">
+                                Please enter city.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Country <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input name="fkCountry" id="fkCountry" required #fkCountry="ngModel"  [(ngModel)]="submitObjectTab1.fkCountry" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" (change)="onChangeCountry(submitObjectTab1.fkCountry)" name="fkCountry" id="fkCountry" required #fkCountry="ngModel"  [(ngModel)]="submitObjectTab1.fkCountry"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.countryMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <span class="errormsg"  *ngIf="!fkCountry.value && fkCountry.touched || !fkCountry.value && !validTab1">
+                                Please enter country.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">State <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input name="fkRegion" id="fkRegion" required #fkRegion="ngModel"  [(ngModel)]="submitObjectTab1.fkRegion" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" name="fkRegion" id="fkRegion" required #fkRegion="ngModel"  [(ngModel)]="submitObjectTab1.fkRegion"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.regionMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!fkRegion.value && fkRegion.touched || !fkRegion.value && !validTab1">
+                                Please enter state.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Mobile No. <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}"  name="mobileNo" id="mobileNo" [pattern]="mobilePattern" minlength="10" required #mobileNo="ngModel"  [(ngModel)]="submitObjectTab1.mobileNo" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!mobileNo.value && mobileNo.touched || !mobileNo.value && !validTab1" >
+                                Please enter mobile no.
+                              </span>
+                              <span class="errormsg" *ngIf="mobileNo.touched && mobileNo.errors?.pattern"> Mobile number
+                                must be at least 10 digit long. </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Email <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" maxlength="240" name="emailId" id="emailId" [pattern]="emailPattern"  required #emailId="ngModel"  [(ngModel)]="submitObjectTab1.emailId" type="text" class="form-control form-control-sm">
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!emailId.value && emailId.touched || !emailId.value && !validTab1"> Please enter email.
+                              
+                                <!-- <span *ngIf="emailId.errors.required">
+                                  Please enter email.
+                                </span>
+                                <span class="errormsg" *ngIf="emailId.errors.email">
+                                  Invalid email address
+                                </span> -->
+                              </span>
+                              <span class="errormsg" *ngIf="emailId.touched && emailId.errors?.pattern"> Please enter
+                                valid email address.</span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Currency <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input  name="fkCurrency" id="fkCurrency" required #fkCurrency="ngModel"  [(ngModel)]="submitObjectTab1.fkCurrency" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" name="fkCurrency" id="fkCurrency" required #fkCurrency="ngModel"  [(ngModel)]="submitObjectTab1.fkCurrency"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.currencyMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                              
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!fkCurrency.value && fkCurrency.touched || !fkCurrency.value && !validTab1">
+                                Please enter currency.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">GST No. </label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" required [pattern]="gstPattern"  name="gstnNo" id="gstnNo"  #gstnNo="ngModel"  [(ngModel)]="submitObjectTab1.gstnNo" type="text" class="form-control form-control-sm">
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="gstnNo.touched && gstnNo.errors?.pattern ||  gstnNo.errors?.pattern && gstnNo.value && !validTab1"> Please enter
+                                valid GST No. </span>
+                              <!-- <span class="errormsg" *ngIf="!gstnNo.value && gstnNo.touched || !gstnNo.value && !validTab1">
+                                Please enter GST no.
+                              </span> -->
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">PAN No. <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" [pattern]="panPattern" name="panNo" id="panNo"  #panNo="ngModel"  [(ngModel)]="submitObjectTab1.panNo" type="text" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="panNo.touched && panNo.errors?.pattern ||  panNo.errors?.pattern && panNo.value && !validTab1 "> Please enter valid
+                                PAN No.</span>
+                              <span class="errormsg" *ngIf="!panNo.value && panNo.touched || !panNo.value && !validTab1">
+                                Please enter PAN No.
+                              </span>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Lead Time <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <input [ngClass]="{invalid:!validTab1}" name="leadTime" id="leadTime" required #leadTime="ngModel"  [(ngModel)]="submitObjectTab1.leadTime" type="number" class="form-control form-control-sm" >
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!leadTime.value && leadTime.touched || !leadTime.value && !validTab1">
+                                Please enter Lead Time.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Grouping <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input [ngClass]="{invalid:!validTab1}" name="grouping" id="grouping" required #grouping="ngModel"  [(ngModel)]="submitObjectTab1.grouping" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" name="grouping" id="grouping" required #grouping="ngModel"  [(ngModel)]="submitObjectTab1.grouping"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.groupingMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!grouping.value && grouping.touched || !grouping.value && !validTab1">
+                                Please enter grouping.
+                              </span>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-50 row">
+                                <label class="col-md-12 col-form-label">Incoterms <span class="text-danger">*</span></label>
+                                <div class="col-md-12">
+                                  <!-- <input name="fkTittle" id="fkTittle" required #fkTittle="ngModel"  [(ngModel)]="submitObjectTab1.fkTittle" type="text" class="form-control form-control-sm" > -->
+                                  <select [ngClass]="{invalid:!validTab1}" name="incoterm" id="incoterm" required #incoterm="ngModel"  [(ngModel)]="submitObjectTab1.incoterm"  class="custom-select custom-select-sm" >
+                                    <option value="">Select</option>
+                                    <option *ngFor="let item of dropDownMaster.incotermMst" value="{{item.code}}">
+                                      {{item.value}} 
+                                    </option>
+                                  </select>
+                                </div>
+                              </div>
+                              <span class="errormsg" *ngIf="!incoterm.value && incoterm.touched || !incoterm.value && !validTab1"  >
+                                Please enter incoterm.
+                              </span>
+                            </div>
+                          </div>
+                          <footer class="footer fixed-bottom footer-light navbar-border px-2">
+                              <div class="text-right">
+                                <!-- <button type="submit" class="btn btn-danger round btn-min-width btn-darken-2 shadow">Reject</button> -->
+                                <!-- <button type="submit" class="btn btn-secondary round btn-min-width btn-darken-1 shadow">Update</button> -->
+                                <button  type="submit"  class="btn btn-success round btn-min-width btn-darken-1 shadow">Next</button>
+                              </div>
+                          </footer>
+                        </form>
+
+                        </div>
+                        <div class="tab-pane"  *ngIf="tab===2"  [ngClass]="[ tab===2 ? 'nav-link active' : 'nav-link']" id="view-vendor2"  aria-labelledby="base-view-vendor2">
+                          <form  #tab2Form="ngForm" (ngSubmit)="submitResultTab2(tab2Form)" novalidate>
+                            <div class="row">
+                              <!-- <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Grouping <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">  <select name="grouping" id="grouping" required #grouping="ngModel"  [(ngModel)]="submitObjectTab2.grouping"  class="custom-select custom-select-sm" >
+                                      <option value="">Select</option>
+                                      <option *ngFor="let item of dropDownMaster.groupingMst" value="{{item.code}}">
+                                        {{item.value}} 
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!grouping?.valid && (grouping?.dirty || grouping?.touched)">
+                                  Please enter grouping.
+                                </span>
+                              </div> -->
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Bank Name <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input [ngClass]="{invalid:!validTab2}" name="bankName" id="bankName" required #bankName="ngModel"  [(ngModel)]="submitObjectTab2.bankName" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!bankName.value && bankName.touched || !bankName.value && !validTab2" >
+                                  Please enter bank name.
+                                </span>
+                              </div>
+
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Account Number <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input maxlength="18" [ngClass]="{invalid:!validTab2}" name="accountNo" id="accountNo" required #accountNo="ngModel"  [(ngModel)]="submitObjectTab2.accountNo" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!accountNo.value && accountNo.touched || !accountNo.value && !validTab2">
+                                  Please enter account number.
+                                </span>
+                              </div>
+
+                              
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Account Holder Name <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input [ngClass]="{invalid:!validTab2}" name="accountHolder" id="accountHolder" required #accountHolder="ngModel"  [(ngModel)]="submitObjectTab2.accountHolder" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!accountHolder.value && accountHolder.touched || !accountHolder.value && !validTab2" >
+                                  Please enter account holder name.
+                                </span>
+                              </div>
+
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">IFSC Code <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input maxlength="15" [ngClass]="{invalid:!validTab2}" name="ifscCode" id="ifscCode" required #ifscCode="ngModel"  [(ngModel)]="submitObjectTab2.ifscCode" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!ifscCode.value && ifscCode.touched || !ifscCode.value && !validTab2">
+                                  Please enter IFSC code.
+                                </span>
+                              </div>
+
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Bank Control Key <span *ngIf="submitObjectTab1.fkCountry != 'IN' && submitObjectTab1.fkCountry != ''" class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input maxlength="2"  [required]="submitObjectTab1.fkCountry != 'IN' && submitObjectTab1.fkCountry != ''"  name="bankControlKey" id="bankControlKey"  #bankControlKey="ngModel"  [(ngModel)]="submitObjectTab2.bankControlKey" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <!-- <span class="errormsg" *ngIf="!bankControlKey.value && bankControlKey.touched || !bankControlKey.value && !validTab2" >
+                                  Please enter bank control key.
+                                </span> -->
+                                <span class="errormsg" *ngIf="bankControlKey.errors?.required && bankControlKey.touched || bankControlKey.errors?.required && !validTab2">
+                                  Please enter bank control key.
+                              </span>
+                              </div>
+
+                              <!-- <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">MSME </label>
+                                  <div class="col-md-12">
+                                    <input [ngClass]="{invalid:!validTab2}" name="msme" id="msme" #msme="ngModel"  [(ngModel)]="submitObjectTab2.msme" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!msme.value && msme.touched || !msme.value && !validTab2">
+                                  Please enter msme.
+                                </span>
+                              </div> -->
+
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">MSME Certificate No. </label>
+                                  <div class="col-md-12">
+                                    <input maxlength="10"   name="msmeCertificateNo" id="msmeCertificateNo"  #msmeCertificateNo="ngModel"  [(ngModel)]="submitObjectTab2.msmeCertificateNo" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <!-- <span class="errormsg" *ngIf="!msmeCertificateNo.value && msmeCertificateNo.touched || !msmeCertificateNo.value && !validTab2">
+                                  Please enter msme certificateNo.
+                                </span> -->
+                                <!-- <span class="errormsg" *ngIf="msmeCertificateNo.errors?.required && msmeCertificateNo.touched || msmeCertificateNo.errors?.required && !validTab2">
+                                  Please enter msme certificateNo.
+                                </span> -->
+                              </div>
+
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">TIN <span *ngIf="submitObjectTab1.panNo != ''" class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input maxlength="10" [required]="submitObjectTab1.panNo != ''" name="tin" id="tin"  #tin="ngModel"  [(ngModel)]="submitObjectTab2.tin" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <!-- <span class="errormsg" *ngIf="!tin.value && tin.touched || !tin.value && !validTab2" >
+                                  Please enter tin.
+                                </span> -->
+                                <span class="errormsg" *ngIf="tin.errors?.required && tin.touched || tin.errors?.required && !validTab2" >
+                                  Please enter tin.
+                                </span>
+                              </div>
+                         <!-- <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">INCO Term <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <input name="incoterm" id="incoterm" required #incoterm="ngModel"  [(ngModel)]="submitObjectTab2.incoterm" type="text" class="form-control form-control-sm" >
+                                  </div>
+                                </div>
+                                <span class="errormsg" *ngIf="!incoterm?.valid && (incoterm?.dirty || incoterm?.touched)">
+                                  Please enter INCO term .
+                                </span>
+                              </div> -->
+                            </div>
+                            <footer class="footer fixed-bottom footer-light navbar-border px-2">
+                                <div class="text-right">
+                                  <!-- <button type="submit" class="btn btn-danger round btn-min-width btn-darken-2 shadow">Reject</button> -->
+                                  <!-- <button type="submit" class="btn btn-secondary round btn-min-width btn-darken-1 shadow">Update</button> -->
+                                  <button  type="submit" class="btn btn-success round btn-min-width btn-darken-1 shadow">Next</button>
+                                </div>
+                            </footer>
+                          </form>
+
+                        </div>
+                        <div class="tab-pane" *ngIf="tab===3"  [ngClass]="[ tab===3 ? 'nav-link active' : 'nav-link']"   id="view-vendor3" aria-labelledby="base-view-vendor3">
+                          <form  #tab3Form="ngForm" (ngSubmit)="submitResultTab3(tab3Form)" novalidate>
+                            <div class="row">
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">GST Registration </label>
+                                  <div class="col-md-12">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" accept="image/png,image/jpeg,.pdf"  (change)="upload($event.target.files,'GST')"  id="inputGroupFile01">
+                                      <label class="custom-file-label" for="inputGroupFile01">{{gstFile ? gstFile.name :
+                                        'Choose file'}}</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span class="errormsg hidden">
+                                  Please enter gst registration.
+                                </span>
+                              </div>
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">PAN Card Copy <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <div class="custom-file">
+                                        <!-- <input type="file" class="custom-file-input" id="inputGroupFile02"> -->
+                                        <!-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> -->
+                                        <input type="file" class="custom-file-input"  accept="image/png,image/jpeg,.pdf" (change)="upload($event.target.files,'PAN')" id="inputGroupFile02">
+                                        <label class="custom-file-label" for="inputGroupFile02">{{panFile ? panFile.name :
+                                          'Choose file'}}</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span class="errormsg hidden">
+                                  Please enter pan card copy.
+                                </span>
+                              </div>
+                              
+                              <div class="col-xl-3 col-lg-4 col-md-4">
+                                <div class="form-group mb-50 row">
+                                  <label class="col-md-12 col-form-label">Cancelled Cheque <span class="text-danger">*</span></label>
+                                  <div class="col-md-12">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" (change)="uploadCancelledCheque($event.target.files,'CC')"   accept="image/png,image/jpeg,.pdf" id="inputGroupFile01">
+                                        <label class="custom-file-label" for="inputGroupFile01">{{cancelCheque ? cancelCheque.name :
+                                          'Choose file'}}</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span class="errormsg hidden">
+                                  Please enter cancelled cheque.
+                                </span>
+                              </div>
+                            </div>
+                            <footer class="footer fixed-bottom footer-light navbar-border px-2">
+                                <div class="text-right">
+                                  <!-- <button type="submit" class="btn btn-danger round btn-min-width btn-darken-2 shadow">Reject</button> -->
+                                  <!-- <button type="submit" class="btn btn-secondary round btn-min-width btn-darken-1 shadow">Update</button> -->
+                                  <button type="submit" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button>
+                                </div>
+                            </footer>
+                          </form>
+                        
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!-- <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-12 text-right">
+                    <button type="submit" class="btn btn-success round btn-min-width btn-darken-1 shadow next-step">Save</button>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="alertMsg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content text-center">
+         <!--Header-->
+         <!--Body-->
+         <div class="modal-body">
+            <p class="mb-2"><i
+               [ngClass]="[ alertFlag === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+            </p>
+            <h6>{{alertMessage}}</h6>
+         </div>
+         <!--Footer-->
+         <div class="modal-footer d-flex justify-content-center">
+            <button  type="button" class="btn btn-primary"
+            (click)="okAlert()">Ok</button>
+         </div>
+      </div>
+   </div>
+  </div>
+

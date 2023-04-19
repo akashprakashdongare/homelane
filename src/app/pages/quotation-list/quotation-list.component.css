@@ -1,0 +1,7 @@
+.btn-link.reject {
+    font-weight: 500 !important;
+    text-decoration: underline !important;
+}
+.btn-link.reject:hover {
+    text-decoration: none !important;
+}

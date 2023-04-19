@@ -1,0 +1,132 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="feather icon-users text-warning"></i> Purchase Order Confirmation</h3>
+        </div>
+        <!-- <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+          <div class="form-group mb-0">
+              <a class="btn btn-outline-primary" data-toggle="modal" data-target="#createquery"><i class="feather icon-plus-square fa-lg"></i> Raise Query</a>
+          </div>
+        </div> -->
+    </div>
+    <div class="content-body">
+      <div class="card mb-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>PO No :</b> {{viewObject.pono}}</label>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>PO Date :</b> {{viewObject.poDate.split("-").reverse().join("-")}}</label>
+              </div>
+            </div>
+            <!-- <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Company No :</b> {{viewObject.compCode}}</label>
+              </div>
+            </div> -->
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table id="orderViewlist" class="table table-sm table-bordered table-hover mb-0" style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th style="width:10%;" class="text-center">Action</th>
+                      <th style="width:12%;" class="text-center">Material Code</th>
+                      <th style="width:16%;">Material Name</th>
+                      <th style="width:12%;">Item No.</th>
+                      <th style="width:12%;" class="text-right">PO Quantity</th>
+                      <th style="width:12%;" class="text-center">UOM</th>
+                      <th style="width:11%;" class="text-center">Delivery Date</th>
+                      <th style="width:11%;" class="text-center">Confirm Quantity</th>
+                      <th style="width:11%;" class="text-center">Confirm Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of viewArr;let i = index">
+                        <td class="text-center">
+                            <a (click)="add(item,i)" *ngIf="item.unique == true" class="btn-link mr-50" title="View"><i class="feather icon-plus font-medium-1 text-success"></i></a>
+                            <a (click)="delete(item,i)" *ngIf="item.unique == false" class="btn-link mr-50" title="View"><i class="feather icon-trash-2 font-medium-1 text-danger "></i></a>
+                        </td>
+                      <td class="text-center">{{item.materialCode}}</td>
+                      <td>{{item.materialName}}</td>
+                      <td class="text-right">{{item.itemNo}}</td>
+                      <td class="text-right">{{item.poQty}}</td>
+                      <td class="text-center">{{item.uom}}</td>
+                      <td class="text-center">{{item.delDate.split("-").reverse().join("-")}}</td>
+                      <td class="p-50"><input type="number" (change)="checkConfirmQytNegativeNo(item)" id="confirmQty{{i}}" name="confirmQty{{i}}"  [(ngModel)]="item.confirmQty" class="form-control form-control-sm text-right"/></td>
+
+                      <td class="p-50"><input type="text" placement="left"  [(ngModel)]="item.confirmDate" class="form-control form-control-sm"
+                        [maxDate]="item.minMaxDate"  bsDatepicker [bsConfig]="datePickerConfig" autocomplete="off" name="{{i}}+date" readonly /></td>
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer p-50">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-light round btn-min-width  mr-50" (click)='back()'>Back</button>
+
+              <!-- <button type="button" class="btn btn-secondary round btn-min-width btn-darken-2 shadow mr-50" (click)='back()'>Back</button> -->
+              <!-- <button type="button" *ngIf="orderData.status.toLowerCase() == 'pending'"  (click)="rejectPopupOpen()"  class="btn btn-danger round btn-min-width btn-darken-2 shadow mr-50">Reject</button> -->
+              <button type="button"    (click)="submit()" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+<!-- Reject Popup -->
+<div class="modal fade" id="rejectPopup" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content ">
+         <!--Header-->
+         <div class="modal-header">
+          <h4 class="modal-title text-danger" id="myModalLabel18">Reject Reason</h4>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+          </div>
+         <!--Body-->
+         <div class="modal-body">
+
+          <textarea placeholder="Reason" type="text" rows="8"  [(ngModel)]="rejectReason"  class="form-control form-control-sm"></textarea>
+         </div>
+         <!--Footer-->
+         <div class="modal-footer">
+          <button type="button" (click)="rejectPopupClose()" class="btn btn-secondary round btn-min-width btn-darken-1 shadow" >Close</button>
+          <button type="button" [disabled]="rejectReason == ''" (click)="rejectPopupSubmit()" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button>
+        </div>
+      </div>
+   </div>
+  </div>
+
+<!-- alertMsg -->
+<div class="modal fade" id="alertMsg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content text-center">
+         <!--Header-->
+         <!--Body-->
+         <div class="modal-body">
+            <p class="mb-2"><i
+               [ngClass]="[ alertFlag === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+            </p>
+            <h6>{{alertMessage}}</h6>
+         </div>
+         <!--Footer-->
+         <div class="modal-footer d-flex justify-content-center">
+            <button  type="button" class="btn btn-primary"
+            (click)="okAlert()">Ok</button>
+         </div>
+      </div>
+   </div>
+  </div>

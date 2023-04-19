@@ -1,0 +1,219 @@
+<!-- <p>query-view works!</p>
+<button type="button" (click)="onBack()" 
+class="btn btn-secondary round btn-min-width btn-darken-2 shadow mr-50">Back</button> -->
+
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+      <div class="content-header-left col-md-12 col-12">
+        <h3 class="content-header-title mb-0"><i class="feather icon-file-text text-warning"></i> {{responseJson.queryId}}</h3>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card h-100 mb-0">
+            <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+              <h4 class="lead-header-title mb-0">Vendor Details</h4>
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush">
+                <!-- <div class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">
+                      <h6 class="mb-0 lead-quetion">Query id</h6>
+                    </div>
+                    <div class="col-5">
+                      <h6 class="mb-0 lead-quetion">{{responseJson.queryId}}</h6>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">
+                      <h6 class="mb-0 lead-quetion">Query Type</h6>
+                    </div>
+                    <div class="col-5">
+                      <h6 class="mb-0 lead-quetion">{{responseJson.queryType}}</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="list-group-item">
+                  <div class="row">
+                    <div class="col-7">
+                      <h6 class="mb-0 lead-quetion">Subject</h6>
+                    </div>
+                    <div class="col-5">
+                      <h6 class="mb-0 lead-quetion">{{responseJson.subject}}</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="list-group-item">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="mb-50 lead-quetion">Query/Issue</h6>
+                    </div>
+                    <div class="col-12">
+                      <h6 class="mb-0 lead-quetion">{{responseJson.query}}</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="list-group-item">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="mb-50 lead-quetion">Attachments</h6>
+                    </div>
+                    <div class="col-12">
+                      <a class="btn btn-link p-50" title="View"><i class="fa fa-file-pdf-o font-large-1 text-danger"></i></a>
+                      <a class="btn btn-link p-50" title="View"><i class="fa fa-file-word-o font-large-1 text-primary"></i></a>
+                      <a class="btn btn-link p-50" title="View"><i class="fa fa-file-excel-o font-large-1 text-info"></i></a>
+                      <a class="btn btn-link p-50" title="View"><i class="fa fa-file-image-o font-large-1 text-secondary"></i></a>
+                      <a class="btn btn-link p-50" title="View"><i class="fa fa-file-word-o font-large-1 text-primary"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card bg-transparent chat-application shadow-none mb-0">
+            <div class="card-body chat-scroll pt-50 text-center" id="div1">
+              <div class="chat-content">
+                <ng-container *ngFor="let message of responseJson.answers">
+                  <div class="chat" *ngIf="message.action==='BLUE'">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                          <p>{{message.answer}}</p>
+                          <span class="chat-time">{{message.createdOn}}</span>
+                            <!-- <p>How can we help? We're here for you!</p>
+                            <span class="chat-time">02-02-2022 - 7:45 AM</span> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="chat chat-left" *ngIf="message.action==='WHITE'">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>{{message.answer}}</p>
+                            <span class="chat-time">{{message.createdOn}}</span>
+                        </div>
+                        <!-- <div class="chat-message">
+                            <p>It should be Bootstrap 4 compatible.</p>
+                            <span class="chat-time">02-02-2022 - 7:58 AM</span>
+                        </div> -->
+                    </div>
+                </div>
+                </ng-container>
+              
+                <!-- <div class="badge badge-pill badge-light-secondary my-1">Yesterday</div>
+                <div class="chat">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>Absolutely!</p>
+                            <span class="chat-time">02-02-2022 - 8:00 AM</span>
+                        </div>
+                        <div class="chat-message">
+                            <p>Stack admin is the responsive bootstrap 4 admin template.</p>
+                            <span class="chat-time">02-02-2022 - 8:01 AM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat chat-left">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>Looks clean and fresh UI.</p>
+                            <span class="chat-time">02-02-2022 - 10:12 AM</span>
+                        </div>
+                        <div class="chat-message">
+                            <p>It's perfect for my next project.</p>
+                            <span class="chat-time">02-02-2022 - 10:15 AM</span>
+                        </div>
+                        <div class="chat-message">
+                            <p>How can I purchase it?</p>
+                            <span class="chat-time">02-02-2022 - 10:18 AM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>Thanks , from ThemeForest.</p>
+                            <span class="chat-time">02-02-2022 - 10:20 AM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat chat-left">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>I will purchase it for sure.</p>
+                            <span class="chat-time">02-02-2022 - 3:32 PM</span>
+                        </div>
+                        <div class="chat-message">
+                            <p>Thanks.</p>
+                            <span class="chat-time">02-02-2022 - 3:33 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat">
+                    <div class="chat-avatar">
+                        <a class="avatar m-0">
+                            <img src="assets/img/avatar-s-1.png" alt="avatar" height="36" width="36">
+                        </a>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-message">
+                            <p>Great, Feel free to get in touch on</p>
+                            <span class="chat-time">02-02-2022 - 3:34 AM</span>
+                        </div>
+                        <div class="chat-message">
+                            <p>https://pixinvent.ticksy.com/</p>
+                            <span class="chat-time">02-02-2022 - 3:35 AM</span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            </div>
+            <div class="card-footer chat-footer bg-transparent px-2 pt-1 pb-0">
+                <form class="d-flex align-items-center" [formGroup]="formData" (ngSubmit)="onSubmit()">
+                    <i class="feather icon-user cursor-pointer"></i>
+                    <i class="feather icon-paperclip ml-1 cursor-pointer"></i>
+                    <input type="text" class="form-control chat-message-send mx-1" formControlName="answer" placeholder="Type your message here...">
+                    <button type="submit"  class="btn btn-primary glow send d-lg-flex"><i class="feather icon-play"></i>
+                        <span class="d-none d-lg-block mx-50">Send</span></button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

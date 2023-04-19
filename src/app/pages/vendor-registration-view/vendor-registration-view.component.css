@@ -1,0 +1,12 @@
+.nav-pills .nav-link {
+    color: #0e141e;
+    }
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #eb7b1b;
+    }
+    .view-vendor-scroll {
+    max-height: 62vh;
+    overflow: hidden;
+    overflow: auto;
+    }

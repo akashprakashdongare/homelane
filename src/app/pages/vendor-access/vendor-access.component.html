@@ -1,0 +1,114 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="feather icon-users text-warning"></i> Vendor Access</h3>
+        </div>
+        <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+            <div class="form-group mb-0">
+                <!-- <a class="btn btn-link" routerLink="create"><i class="feather icon-user-plus text-primary fa-lg"></i> Create User</a> -->
+            </div>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="card">
+            <div class="card-body">
+                <!-- <button mat-raised-button (click)="openDialog()">click</button> -->
+                <div class="table-responsive">
+                    <table id="vendorDetails" class="table table-sm table-bordered table-hover mb-0"
+                        style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Action</th>
+                                <th>Status</th>
+                                <th>Vendor Code</th>
+                                <!-- <th>Id</th> -->
+                                <th> First Name</th>
+                                <th> Last Name</th>
+                                <th >City</th>
+                                <th>Country</th>
+                                <th>Email Id</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let user of vendorDetails">
+                                <tr>
+                                    <td class="text-center">
+                                        <a class="btn-link mr-50" title="View" (click)="navigateTo(user)" ><i class="feather icon-eye font-medium-1 "></i></a>
+                                        <a class="btn-link" title="Lock" (click)="openLock_Unloc_popup(user)"><i
+                                               
+                                                [ngClass]="[ user.isLocked == 'Y' ? 'feather icon-lock font-medium-1 text-secondary' : 'feather icon-unlock font-medium-1 text-primary']"></i>
+
+                                        </a>
+
+                                    </td>
+                                    <td><span *ngIf="user.isLocked == 'Y'">In active</span>
+                                        <span  *ngIf="user.isLocked == 'N'">Active</span>
+                                      </td>
+                                    <td>{{user.userId}}
+                                    </td>
+                                    <!-- <td>{{user.id}}</td> -->
+                                    <td>{{user.firstName}} </td>
+                                    <td>{{user.lastName}}</td>
+                                    <td >{{user.city}}</td>
+                                    <td>{{user.country}}</td>
+                                    <td>{{user.emailId}}</td>
+
+                                </tr>
+                            </ng-container>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lock/Unlock popup-->
+<div class="modal fade" id="alertLock" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content text-center">
+            <!--Header-->
+            <!--Body-->
+            <div class="modal-body">
+                <p class="mb-2"><i
+                        [ngClass]="[ lock_UnlockUserObj.isLocked != 'Y' ? 'feather icon-lock font-large-4 text-warning' : 'feather icon-unlock font-large-4 text-warning']"></i>
+                </p>
+                <h6>Are you sure you want to {{lock_UnlockUserObj.isLocked != 'Y'?'lock':'unlock'}} ?</h6>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" (click)="yes_Lock_UnLock()">Yes</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="no_Lock_Unlock()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Alert popup -->
+<div class="modal fade" id="alertMsg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content text-center">
+            <!--Header-->
+            <!--Body-->
+            <div class="modal-body">
+                <p class="mb-2"><i
+                        [ngClass]="[ alertResponse.status === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+                </p>
+                <h6>{{alertResponse.message}}</h6>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer d-flex justify-content-center">
+                <button *ngIf="alertResponse.status === 'success'" type="button" class="btn btn-primary"
+                    (click)="okAlert()">Ok</button>
+                <button *ngIf="alertResponse.status !== 'success'" type="button" class="btn btn-primary"
+                    data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

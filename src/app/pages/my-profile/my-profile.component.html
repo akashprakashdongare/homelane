@@ -1,0 +1,219 @@
+<div class="content-wrapper">
+  <div class="content-header row mb-0">
+      <div class="content-header-left col-md-6 col-12 mb-1">
+          <h3 class="content-header-title mb-0"><i class="feather icon-user text-warning"></i> My Profile</h3>
+      </div>
+      <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+        <div class="form-group mb-0">
+            <!-- <a class="btn btn-link" data-toggle="modal" data-target="#createquery"><i class="feather icon-users fa-lg text-warning"></i> User List</a> -->
+        </div>
+      </div>
+  </div>
+  <div class="content-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mb-0 bg-transparent shadow-none">
+          <div class="card-body">
+            <div class="row">
+              <!-- <div class="col-md-12">
+                <p class="page-title">Personal Details</p>
+              </div> -->
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Vendor Code</label>
+                  <h6 class="text-bold-600">{{vendorDetails.vendorCode}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">First Name</label>
+                  <h6 class="text-bold-600">{{vendorDetails.name1}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Last Name</label>
+                  <h6 class="text-bold-600">{{vendorDetails.name2}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Title</label>
+                  <h6 class="text-bold-600">{{vendorDetails.title}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Email Id</label>
+                  <h6 class="text-bold-600">{{vendorDetails.emailId}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-4">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Mobile No</label>
+                  <h6 class="text-bold-600">{{vendorDetails.mobileNo}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="page-title-view">Address</h5>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Street</label>
+                  <h6 class="text-bold-600">{{vendorDetails.street}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Street 2</label>
+                  <h6 class="text-bold-600">{{vendorDetails.street2}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Postal Code</label>
+                  <h6 class="text-bold-600">{{vendorDetails.postCode}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">City</label>
+                  <h6 class="text-bold-600">{{vendorDetails.city}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">State</label>
+                  <h6 class="text-bold-600">{{vendorDetails.region}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Country</label>
+                  <h6 class="text-bold-600">{{vendorDetails.country}}</h6>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12">
+                <div class="form-group mb-50">
+                  <label class="col-form-label">Grouping</label>
+                  <h6 class="text-bold-600">{{vendorDetails.grouping}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 col-md-8">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card mb-50">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="page-title-view">Bank Account Details</h5>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Account Holder</label>
+                      <h6 class="text-bold-600">{{vendorDetails.accountHolder}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Account No</label>
+                      <h6 class="text-bold-600">{{vendorDetails.accountNo}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">IFSC Code</label>
+                      <h6 class="text-bold-600">{{vendorDetails.ifscCode}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-2 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">House Bank</label>
+                      <h6 class="text-bold-600">{{vendorDetails.houseBank}}</h6>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card mb-0">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="page-title-view">Other Details</h5>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">GST No</label>
+                      <h6 class="text-bold-600">{{vendorDetails.gstnNo}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">PAN No</label>
+                      <h6 class="text-bold-600">{{vendorDetails.panNo}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Incoterms</label>
+                      <h6 class="text-bold-600">{{vendorDetails.incoterm}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Payment Terms</label>
+                      <h6 class="text-bold-600">{{vendorDetails.payTerms}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Currency</label>
+                      <h6 class="text-bold-600">{{vendorDetails.currency}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Reconciliation Account No</label>
+                      <h6 class="text-bold-600">{{vendorDetails.recconAcNo}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Scheme Supply</label>
+                      <h6 class="text-bold-600">{{vendorDetails.shemaGroup}}</h6>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="form-group mb-50">
+                      <label class="col-form-label">Search Term</label>
+                      <h6 class="text-bold-600">{{vendorDetails.searchTerm}}</h6>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

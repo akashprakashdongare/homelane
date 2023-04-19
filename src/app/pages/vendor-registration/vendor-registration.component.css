@@ -1,0 +1,74 @@
+.page-vendor-sign {
+  margin-top: -4rem !important;
+}
+.page-vendor-sign .bg-left-vendor {
+  width: 100%;
+  background-image: url("../../../assets/img/vendor-sign-bg.jpg"),radial-gradient(rgb(255 230 212), rgb(247 237 235));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.page-vendor-sign .login-title {
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 500;
+  color: #e21e26;
+  font-size: 2.1rem;
+  text-shadow: 0px 6px 5px rgb(225 225 225);
+}
+.page-vendor-sign .login-title-2 {
+  font-family: "Open Sans", sans-serif !important;
+  font-weight: 500;
+  color: #c04f3b;
+  font-size: 1.15rem;
+  text-shadow: 0px 4px 9px rgb(225 225 225);
+}
+.page-vendor-sign .nav-pills .nav-link {
+  color: #0e141e;
+}
+.page-vendor-sign .nav-pills .nav-link.active, .page-vendor-sign .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #eb7b1b;
+}
+.page-vendor-sign .card-footer {
+  padding: 0.5rem 1.5rem;
+}
+.page-vendor-sign .page-scroll {
+  max-height: 66.4vh;
+  overflow: hidden;
+  overflow: auto;
+}
+.page-vendor-sign .page-view-scroll {
+  height: 91vh;
+  overflow: hidden;
+  overflow: auto;
+}
+.page-vendor-sign .custom-file {
+  /* font-size:.9rem; */
+  /* height: calc(1.8em + 0.8rem + 2px); */
+  height: 2.25rem;
+}
+.page-vendor-sign .custom-file-input {
+  height: 2.25rem;
+}
+.page-vendor-sign .custom-file-label {
+  height: 2.25rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.6;
+  background-color: #ffffff;
+  border: 1px solid #ebebeb;
+}
+.page-vendor-sign .custom-file-label::after {
+  height: 2.25rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.6;
+  color: #000000;
+  background-color: #dbdbdb;
+}
+
+.page-vendor-sign .footer {
+  margin-left: 0 !important;
+  width: 100% !important;
+  }
+
+  
+

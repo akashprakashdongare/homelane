@@ -1,0 +1,59 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="fa-solid fa-address-card text-warning"></i> Vendor Request</h3>
+        </div>
+        <!-- <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+          <div class="form-group mb-0">
+            <a class="btn btn-link" routerLink="create"><i class="feather icon-user-plus text-primary fa-lg"></i> Create User</a>
+
+          </div>
+        </div> -->
+    </div>
+    <div class="content-body">
+      <div class="card">
+        <div class="card-body">
+          <!-- <button mat-raised-button (click)="openDialog()">click</button> -->
+          <div class="table-responsive">
+            <table id="List" class="table table-sm table-bordered table-hover mb-0" style="width:100%;">
+                <thead>
+                    <tr>
+                      <th class="text-center">Action</th>
+                      <th>Status</th>
+                        <th>Vendor Id</th>
+                        <th>Company Name</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Email Id</th>
+                        <th>Mobile No</th>
+                        
+                        <!-- <th class="text-center">Mobile no.</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vendor of vendorList;let i=index;">
+                      <td class="text-center">
+                        <!-- <a class="btn-link mr-50" title="View"><i class="feather icon-eye font-medium-1 text-primary"></i></a> -->
+                        <a class="btn-link mr-50" title="Edit" [routerLink]="['view/'+vendor.regId]"><i class="feather icon-eye font-medium-1 text-secondary"></i></a>
+                        <!-- <a class="btn-link" title="Delete" ><i class="feather icon-trash-2 font-medium-1 text-danger"></i></a> -->
+                 
+                      </td>
+                      <td>{{vendor.status}}</td>
+
+                        <td>{{vendor.regId}}</td>
+                        <td>{{vendor.name1}} {{vendor.name2}}</td>
+                        <td>{{vendor.city}}</td>
+                        <td>{{vendor.fkCountry}}</td>
+                        <td>{{vendor.emailId}}</td>
+                        <td>{{vendor.mobileNo}}</td>
+                     
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

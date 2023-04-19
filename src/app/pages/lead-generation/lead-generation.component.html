@@ -1,0 +1,533 @@
+<div class="page-vendor-lead">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3 bg-left-vendor d-none d-md-block" style="height:100vh;min-height:auto;">
+            <div class="mt-0 mb-3 text-center">
+              <img src="assets/img/homelane-logo.png" class="" />
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1 class="login-title mt-0 mb-1">Partner Registration Request Form</h1>
+                <!-- <h1 class="login-title-2 mb-1">Create Vendor Registration</h1> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 bg-right-vendor p-0">
+            <div class="card bg-transparent border-0 rounded-0 shadow-none mb-0">
+              <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 bg-transparent pb-1">
+                <h4 class="login-title-2">Registration Form</h4>
+                <small class="text-powered">Please note that fields marked with <span class="text-danger">*</span>
+                  are mandatory</small>
+              </div>
+              <form [formGroup]="formData" (ngSubmit)="onSubmit()" #formDetails>
+                <div class="card-body page-scroll">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">1. <i class="feather icon-arrow-right text-warning fa-lg"></i> How
+                            did you first contact us? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                         
+                            <!-- <div class="col-md-12"> -->
+                          
+  
+  
+                              <!-- <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck1">
+                                  <label class="custom-control-label" for="customCheck1">Email</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck2">
+                                  <label class="custom-control-label" for="customCheck2">Social Media</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck3">
+                                  <label class="custom-control-label" for="customCheck3">Referral</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck4">
+                                  <label class="custom-control-label" for="customCheck4">IndiaMart</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck5">
+                                  <label class="custom-control-label" for="customCheck5">Just Dial</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck6">
+                                  <label class="custom-control-label" for="customCheck6">Quikr</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck7">
+                                  <label class="custom-control-label" for="customCheck7">Google</label>
+                              </div>
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                  <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck8">
+                                  <label class="custom-control-label" for="customCheck8">Others</label>
+                              </div> -->
+                            <!-- </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select formControlName="fkContUs" #fkContUs  class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let contact of contactUsMst" value="{{contact.code}}">
+                                    {{contact.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkContUs.hasError('required') && 
+                              (formData.controls.fkContUs.dirty || formData.controls.fkContUs.touched)">
+                                Please select company's name.
+                              </span>
+                            </div>
+                            <div *ngIf="!formData.get('contUsOther').disabled" class="col-xl-3 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text" formControlName="contUsOther"  class="form-control form-control-sm" name="" placeholder="Others">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.contUsOther.hasError('required') && 
+                              (formData.controls.contUsOther.dirty || formData.controls.contUsOther.touched)">
+                                Please enter Others.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">2. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            first name <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="firstName"  class="form-control form-control-sm" name=""
+                                  placeholder="first name">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.firstName.hasError('required') && 
+                              (formData.controls.firstName.dirty || formData.controls.firstName.touched)">
+                                Please first name.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">3. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            last name <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="lastName"  class="form-control form-control-sm" name=""
+                                  placeholder="last name">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.lastName.hasError('required') && 
+                              (formData.controls.lastName.dirty || formData.controls.lastName.touched)">
+                                Please last name.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">4. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            company's name <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="companyName"  class="form-control form-control-sm" name=""
+                                  placeholder="company's name">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.companyName.hasError('required') && 
+                              (formData.controls.companyName.dirty || formData.controls.companyName.touched)">
+                                Please company's name.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">5. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            email id <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="emailId"   class="form-control form-control-sm" name="" placeholder="email id">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.emailId.hasError('required') && 
+                              (formData.controls.emailId.dirty || formData.controls.emailId.touched)">
+                                Please enter email id.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">6. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            requester email Id <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="requesterEmailId"  class="form-control form-control-sm" name=""
+                                  placeholder="requester email Id">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.requesterEmailId.hasError('required') && 
+                              (formData.controls.requesterEmailId.dirty || formData.controls.requesterEmailId.touched)">
+                                Please enter requester email id.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">7. <i class="feather icon-arrow-right text-warning fa-lg"></i> Your
+                            phone number <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="mobileNo" class="form-control form-control-sm" name=""
+                                  placeholder="phone number">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.mobileNo.hasError('required') && 
+                              (formData.controls.mobileNo.dirty || formData.controls.mobileNo.touched)">
+                                Please enter phone number.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">8. <i class="feather icon-arrow-right text-warning fa-lg"></i> Which
+                            HomeLane city will you be able to service? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h6 class="text-light mb-1">Choose as many as you like</h6>
+                            </div>
+                            <!-- <div class="col-md-12">
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Email</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select multiple="multiple" id="city" name="city"   
+                                class="custom-select custom-select-sm" >
+                                  <!-- <option value="">Select</option> -->
+                                  <option    *ngFor="let city of cityMst" value="{{city.code}}">
+                                    {{city.value}} 
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkCity.hasError('required')">
+                                Please select city.
+                              </span>
+                            </div>
+                        
+                            <div class="col-xl-4 col-lg-4 col-md-4" *ngIf="!formData.get('cityOther').disabled">
+                              <div class="form-group mb-0">
+                                <input type="text" formControlName="cityOther"  class="form-control form-control-sm" name="" placeholder="Others">
+                              </div>
+                              <span class="errormsg hidden">
+                                Please phone number.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">9. <i class="feather icon-arrow-right text-warning fa-lg"></i> What
+                            type of service you provide? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h6 class="text-light mb-1">Choose as many as you like</h6>
+                            </div>
+                            <!-- <div class="col-md-12">
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck8">
+                                <label class="custom-control-label" for="customCheck8">Others</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select  multiple="multiple" id="serviceType" name="serviceType"  class="custom-select custom-select-sm" >
+                                  <!-- <option value="">Select</option> -->
+                                  <option *ngFor="let service of serviceTypeMst" value="{{service.code}}">
+                                    {{service.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkSerProvideType.hasError('required')">
+                                Please select type of service.
+                              </span>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4" *ngIf="!formData.get('serProvideTypeOther').disabled">
+                              <div class="form-group mb-0">
+                                <input type="text"  formControlName="serProvideTypeOther"  class="form-control form-control-sm" name="" placeholder="Others">
+                              </div>
+                              <span class="errormsg hidden">
+                                Please phone number.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">10. <i class="feather icon-arrow-right text-warning fa-lg"></i> Which
+                            service category best describes the services provided by you? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">      
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck8">
+                                <label class="custom-control-label" for="customCheck8">Others</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select  formControlName="fkSerCategoryDesc" class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let service of serviceCategoryMst" value="{{service.code}}">
+                                    {{service.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkSerCategoryDesc.hasError('required') && 
+                              (formData.controls.fkSerCategoryDesc.dirty || formData.controls.fkSerCategoryDesc.touched)">
+                                Please select service category.
+                              </span>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4" *ngIf="!formData.get('serCategoryDescOther').disabled">
+                              <div class="form-group mb-0">
+                                <input type="text" formControlName="serCategoryDescOther" class="form-control form-control-sm" name="" placeholder="Others">
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.serCategoryDescOther.hasError('required') && 
+                              (formData.controls.serCategoryDescOther.dirty || formData.controls.serCategoryDescOther.touched)">
+                                Please enter others.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">11. <i class="feather icon-arrow-right text-warning fa-lg"></i> Type
+                            of Firm <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck8">
+                                <label class="custom-control-label" for="customCheck8">Others</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select formControlName="fkFirmType"   class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let firm of firmTypeMst" value="{{firm.code}}">
+                                    {{firm.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkFirmType.hasError('required') && 
+                              (formData.controls.fkFirmType.dirty || formData.controls.fkFirmType.touched)">
+                                Please select firm type.
+                              </span>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4" *ngIf="!formData.get('firmTypeOther').disabled">
+                              <div class="form-group mb-0">
+                                <input type="text" formControlName="firmTypeOther"   class="form-control form-control-sm" name="" placeholder="Others">
+                              </div>
+                              <span class="errormsg "  *ngIf="formData.controls.firmTypeOther.hasError('required') && 
+                              (formData.controls.firmTypeOther.dirty || formData.controls.firmTypeOther.touched)">
+                                Please enter others.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">12. <i class="feather icon-arrow-right text-warning fa-lg"></i> What
+                            is your annual turn over? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck14">
+                                <label class="custom-control-label" for="customCheck14">Greater than 50L</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select formControlName="fkTurnOver"   class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let turnOver of turnOverMst" value="{{turnOver.code}}">
+                                    {{turnOver.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkTurnOver.hasError('required') && 
+                              (formData.controls.fkTurnOver.dirty || formData.controls.fkTurnOver.touched)">
+                                Please select turn over.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">13. <i class="feather icon-arrow-right text-warning fa-lg"></i> What
+                            is your employee count? <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">
+                              <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck24">
+                                <label class="custom-control-label" for="customCheck24">Greater than 30</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select  formControlName="fkEmpCount"    class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let count of empStrengthMst" value="{{count.code}}">
+                                    {{count.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkEmpCount.hasError('required') && 
+                              (formData.controls.fkEmpCount.dirty || formData.controls.fkEmpCount.touched)">
+                                Please select employee count.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">14. <i class="feather icon-arrow-right text-warning fa-lg"></i>
+                            Credit Holding Capacity ( 30-45 Days Period ) <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">                            <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck33">
+                                <label class="custom-control-label" for="customCheck33">Above 15</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select formControlName="fkCreditHCap"   class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let credit of creditCapacityMst" value="{{credit.code}}">
+                                    {{credit.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg "  *ngIf="formData.controls.fkCreditHCap.hasError('required') && 
+                              (formData.controls.fkCreditHCap.dirty || formData.controls.fkCreditHCap.touched)">
+                                Please select credit holding capacity .
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="card">
+                        <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                          <h6 class="lead-label mb-0">15. <i class="feather icon-arrow-right text-warning fa-lg"></i>
+                            Experience in Home Interior/Turn Key/Home Renovation business <span class="text-danger">*</span></h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <!-- <div class="col-md-12">
+                                 <div class="d-inline-block custom-control custom-checkbox mr-2 mb-2">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck44">
+                                <label class="custom-control-label" for="customCheck44">Above 10 Years</label>
+                              </div>
+                            </div> -->
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                              <div class="form-group mb-0">
+                                <select   formControlName="fkExpIntTurnRenovation"  class="custom-select custom-select-sm" >
+                                  <option value="">Select</option>
+                                  <option *ngFor="let exp of experienceMst" value="{{exp.code}}">
+                                    {{exp.value}} 
+                                  </option>
+                                </select>
+                              </div>
+                              <span class="errormsg " *ngIf="formData.controls.fkExpIntTurnRenovation.hasError('required') && 
+                              (formData.controls.fkExpIntTurnRenovation.dirty || formData.controls.fkExpIntTurnRenovation.touched)">
+                                Please select here.
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  
+  
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent">
+                  <div class="row">
+                    <div class="col-12 text-right">
+                      <!-- <button type="button"   class="btn btn-secondary round btn-min-width btn-darken-2 shadow mr-50">Back</button> -->
+                      <!-- <button type="button"(click)="onBack()" class="btn btn-light round btn-min-width  mr-50">Back</button> -->
+                      <button type="button" class="btn btn-light round btn-min-width  mr-50" (click)="onBack()">Back</button>
+
+                      <button type="submit" [disabled]="!formData.valid"
+                        class="btn btn-success round btn-min-width btn-darken-1 shadow next-step">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-success-error-message [alertResponse]="alertResponse" ></app-success-error-message>

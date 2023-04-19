@@ -1,0 +1,37 @@
+<div class="modal fade" id="alertMsg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+    <div class="modal-content text-center">
+
+      <!--Header-->
+
+      <!--Body-->
+
+      <div class="modal-body">
+
+        <p class="mb-2"><i
+            [ngClass]="[ alertResponse.status === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+        </p>
+
+        <h6>{{alertResponse.message}}</h6>
+
+      </div>
+
+      <!--Footer-->
+
+      <div class="modal-footer d-flex justify-content-center">
+
+        <button *ngIf="alertResponse.status === 'success'" type="button" class="btn btn-primary"
+          (click)="okAlert()">Ok</button>
+        <button *ngIf="alertResponse.status !== 'success'" type="button" class="btn btn-primary"
+          data-dismiss="modal">Ok</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

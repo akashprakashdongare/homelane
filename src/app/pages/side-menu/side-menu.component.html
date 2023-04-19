@@ -1,0 +1,42 @@
+    <div class="main-menu-content">
+      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+        <li class=" navigation-header"><span>Menu</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Menu"></i></li>
+        <!-- <ng-container *ngFor="let menu of sideMenu">
+          <li class="active nav-item" [ngClass]="{'has-sub':menu.subMenuList}"><a routerLink="changePassword"><i class="feather icon-unlock"></i><span class="menu-title" data-i18n="Change Password">{{menu.menuName}}</span></a></li>
+          <ng-container *ngIf="menu.subMenuList">
+            <ul *ngFor="let submenu of menu.subMenuList"  class="menu-content" style="">
+              <li class="is-shown"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="eCommerce">{{submenu.menuName}}</a>
+              </li>
+              </ul>
+          </ng-container>
+         
+        </ng-container> -->
+        <ng-container *ngFor="let menu of sideMenu">
+          <ng-container *ngIf="menu.subMenuList.length>0">
+            <li class=" nav-item has-sub"><a >
+              <!-- <i  class="feather icon-activity"></i>iconClass -->
+              <i  class="{{menu.iconClass}}"></i>
+              <span class="menu-title" data-i18n="Dashboard">{{menu.menuName}}</span></a>
+              <ul   class="menu-content" style="">
+                    <li *ngFor="let submenu of menu.subMenuList"  class="is-shown"  >
+                      <a  [routerLinkActive]="['active']" routerLink="{{submenu.action}}"   class="menu-item"  data-i18n="eCommerce">{{submenu.menuName}}</a>
+                    </li>
+                  
+                </ul>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="menu.subMenuList.length==0">
+            <li class=" nav-item " ><a [routerLink]="menu.action===''?'login':menu.action"   >
+              <!-- <i class="feather icon-activity"  ></i>{{menu.iconClass}} -->
+              <i class="{{menu.iconClass}}"  ></i>
+              <span   class="menu-title" data-i18n="Dashboard"  >{{menu.menuName}}</span></a>
+            </li>
+          </ng-container>
+     
+        </ng-container>
+        <!-- <li class=" nav-item"><a href="app-email.html"><i class="feather icon-users"></i><span class="menu-title" data-i18n="My Profile">My Profile</span></a></li>
+        <li class="active nav-item"><a routerLink="changePassword"><i class="feather icon-unlock"></i><span class="menu-title" data-i18n="Change Password">Change Password</span></a></li> -->
+      </ul>
+    </div>
+ 

@@ -1,0 +1,132 @@
+
+<div class="content-wrapper mb-2">
+    <div class="content-header row mb-2">
+      <div class="content-header-left col-md-12 col-12 pl-2">
+          <h3 class="content-header-title mb-0"><i class="feather icon-grid text-warning"></i> Menu Authorization</h3>
+      </div>
+    </div>
+    <div class="content-body">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 mb-2">
+          <div class="form-group mb-50 row">
+            <label for="region" class="col-form-label col-4">Select Profile</label>
+            <div class="col-8">
+              <!-- <select class="custom-select custom-select-sm" [formControl]="profileCode" >
+                  <option value="" ></option>
+                  <option [value]="profile.code" *ngFor="let profile of profileList">{{profile.value}}</option>
+
+              </select> -->
+              <select [ngClass]="{invalid:!validTab1}" name="profileCode" id="profileCode" (change)="changeProfile()"   [(ngModel)]="submitObject.profileCode"  class="custom-select custom-select-sm" >
+                <option value="">Select</option>
+                <option *ngFor="let item of profileList" value="{{item.code}}">
+                  {{item.value}} 
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 mb-2">
+          <button type="button" (click)="onSelectRole()" class="btn btn-secondary round btn-min-width btn-darken-1 shadow">Search</button>
+        </div>
+      </div>
+      
+      <div class="row match-height">
+        <ng-container *ngFor="let menu of profileMenuList;let i = index">
+          <div class="col-xl-4 col-lg-4 col-md-4 h-100">
+            <div class="card timeline-panel">
+              <div class="card-header border-bottom-blue-grey border-bottom-lighten-5 py-1">
+                <div class="row">
+                  <div class="col-md-8 col-12">
+                    <h6 class="mb-0"><i class="feather icon-user-plus text-warning fa-lg"></i> {{menu.menuName}}</h6>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <!-- <div class="float-right">
+                        <input type="checkbox" class="switch" id="switch5" data-group-cls="btn-group-sm" hidden="">
+                        <div class="btn-group btn-group-sm" tabindex="0">
+                          <button is="0" type="button" tabindex="-1" class="btn active btn-danger">Edit</button>
+                          <button is="1" type="button" tabindex="-1" class="btn btn-default">Read</button>
+                        </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <div class="card-body pt-50">
+                <div class="widget-timeline">
+                  <ul>
+                    <li class="timeline-items timeline-icon-success">
+                      <div class="timeline-title">
+                        <div class="custom-control custom-checkbox">
+                              <input type="checkbox" (click)="checkHeader(menu)" [(ngModel)]="menu.checked" class="custom-control-input" name="header{{i}}" id="header{{i}}">
+                              <label class="custom-control-label" for="header{{i}}">{{menu.menuName}}</label>
+                        </div>
+                      </div>
+                      <ul *ngIf="menu.subMenuList">
+                        <li class="timeline-items timeline-icon-danger" *ngFor="let sub  of menu.subMenuList;let j = index">
+                          <div class="timeline-title">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" (click)="checkSubHeader(sub,menu)" [(ngModel)]="sub.checked" class="custom-control-input" name="{{i}}subHeader{{j}}" id="{{i}}subHeader{{j}}">
+                              <label class="custom-control-label" for="{{i}}subHeader{{j}}">{{sub.menuName}}</label>
+                            </div>
+                          </div>
+                          <!-- <div class="timeline-subtitle">Mobile Project</div> -->
+                        </li>
+                        <!-- <li class="timeline-items timeline-icon-danger">
+                          <div class="timeline-title">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck1">
+                              <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="timeline-items timeline-icon-danger">
+                          <div class="timeline-title">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="customCheck" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                          </div>
+                        </li> -->
+                      </ul>
+                    </li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      
+        
+      
+
+      </div>
+    </div>
+</div>
+<!-- BEGIN: Footer-->
+<footer class="footer fixed-bottom footer-light navbar-border">
+    <div class="text-right">
+      <button type="button" [disabled]="submitObject.profileCode == ''" (click)="submitResult()" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button>
+    </div>
+</footer>
+<!-- END: Footer-->
+
+
+<div class="modal fade" id="alertMsg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+   aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content text-center">
+         <!--Header-->
+         <!--Body-->
+         <div class="modal-body">
+            <p class="mb-2"><i
+               [ngClass]="[ alertFlag === 'success' ? 'feather icon-bell font-large-4 text-success' : 'feather icon-bell font-large-4 text-danger']"></i>
+            </p>
+            <h6>{{alertMessage}}</h6>
+         </div>
+         <!--Footer-->
+         <div class="modal-footer d-flex justify-content-center">
+            <button  type="button" class="btn btn-primary"
+            (click)="okAlert()">Ok</button>
+         </div>
+      </div>
+   </div>
+  </div>

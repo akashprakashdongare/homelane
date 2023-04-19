@@ -1,0 +1,233 @@
+/*================================================================================
+	Item Name: Stack - Responsive Admin Theme
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+/* .btn-outline-primary i.text-primary {
+  color: #00b5b8 !important;
+}
+.btn-outline-primary i.text-primary:hover {
+  color: #FFF !important; } */
+
+.page-title {
+  font-size: 1.1rem;
+  font-family: 'Nunito', sans-serif;
+  color: #d96b0c;
+}
+
+.radio {
+  margin: 0.5rem;
+}
+.radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.radio input[type=radio] + .radio-label:before {
+  content: "";
+  background: #ffffff;
+  border-radius: 100%;
+  border: 1px solid #b4b4b4;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  position: relative;
+  top: 0em;
+  margin-right: 1em;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease;
+}
+.radio input[type=radio]:checked + .radio-label:before {
+  background-color: #bd5e07;
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+}
+.radio input[type=radio]:focus + .radio-label:before {
+  outline: none;
+  border-color: #bd5e07;
+}
+.radio input[type=radio]:disabled + .radio-label:before {
+  box-shadow: inset 0 0 0 4px #f4f4f4;
+  border-color: #b4b4b4;
+  /* background: #b4b4b4; */
+}
+.radio input[type=radio] + .radio-label:empty:before {
+  margin-right: 0;
+}
+
+.table .dropdown-toggle::after {
+    display:none;
+}
+
+.questions-title {
+  color: #bf5a11;
+  font-weight: 500;
+}
+
+/* .table th, .table td {
+  border: 0;
+} */
+.table td {
+  font-weight: 500;
+  vertical-align: middle;
+}
+.text-danger {
+    color: #ff1939 !important;
+}
+.text-success {
+    color: #08cd4e !important;
+}
+.errormsg{
+  font-size: 13px;
+  color:red;
+  font-weight: 400;
+}
+
+
+.custom-file {
+    height: calc(1.3em + .75rem + 2px);
+}
+.custom-file-input {
+    height: calc(1.3em + .75rem + 2px);
+}
+.custom-file-label {
+    height: calc(1.35em + .75rem + 2px);
+  padding: 0.3rem 0.5rem;
+	line-height: 1.5;
+    /* border-radius: 0; */
+}
+.custom-file-label::after {
+    height: calc(1.2em + 0.75rem + 2px);
+    padding: 0.3rem 0.5rem;
+	/* line-height: 1.25; */
+    content: "Browse";
+    /* border-radius: 0; */
+}
+/****Timeline**********************************************************************************/
+
+.active-users {
+  overflow: hidden; }
+  .active-users .dropdown .dropdown-menu {
+    transition: none !important; }
+.widget-timeline .custom-control-label {
+  cursor: pointer;
+}
+.timeline-panel .btn {
+  border: 1px solid #222;
+}
+.widget-timeline ul {
+  margin: 0;
+}
+.widget-timeline .timeline-items {
+  padding: 1.1rem 0;
+  /* padding: 1.1rem 0 0 0; */
+  list-style: none;
+  position: relative;
+  line-height: normal;}
+  .widget-timeline .timeline-items .timeline-title {
+    line-height: 1.2;
+    font-family: "Montserrat", Georgia, "Times New Roman", Times, serif;
+    font-weight: 500; }
+  .widget-timeline .timeline-items .timeline-subtitle {
+    margin-bottom: .5rem;
+    color: #babfc7;
+    font-size: 13px; }
+  .widget-timeline .timeline-items .timeline-time {
+    float: right;
+    color: #babfc7;
+    font-size: .9rem; }
+  .widget-timeline .timeline-items:last-child {
+    padding-bottom: 0; }
+  .widget-timeline .timeline-items:not(:last-child):after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    background: #dfe3e7;
+    left: -31px;
+    top: 22px;
+    height: 100%; }
+  .widget-timeline .timeline-items:before {
+    position: absolute;
+    content: '';
+    left: -37px;
+    top: 17px;
+    box-shadow: 1px 2px 6px 0 rgba(25, 42, 70, 0.3);
+    border-radius: 50%;
+    background-color: #00b5b8;
+    height: 13px;
+    width: 13px;
+    z-index: 2; }
+
+    /****Timeline**********************************************************************************/
+
+/****Switch************************************************************************************/
+    /* Toggle */
+input[type="checkbox"].switch,
+input[type="radio"].switch {
+  opacity: 0; }
+
+/* Switchery */
+.switchery {
+  bottom: 4px;
+  margin-top: 5px; }
+
+.float-right .switchery, .switchery-large.switchery {
+  margin-bottom: 0.35rem; }
+
+.switchery-xsmall.switchery {
+  height: 16px;
+  width: 28px; }
+
+.switchery-xsmall.switchery > small {
+  height: 16px;
+  width: 16px; }
+
+.switch ~ .btn-group .btn {
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5); }
+  .switch ~ .btn-group .btn.active {
+    -moz-box-shadow: inset 0px 1px 5px -1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0px 1px 5px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 5px -1px rgba(0, 0, 0, 0.5);
+    color: #fff; }
+    .switch ~ .btn-group .btn.active:not(.dropdown-toggle) {
+      border-bottom-right-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem; }
+  .switch ~ .btn-group .btn:hover {
+    z-index: 1; }
+
+.switch ~ .btn-group:focus {
+  outline: none; }
+
+.switch ~ .btn-group.btn-group-vertical .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem; }
+
+.switch ~ .btn-group.btn-group-vertical .btn:last-child:not(:first-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem; }
+
+.bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-on .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-on .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-on .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-off .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-off .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-animate.bootstrap-switch-off .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on .bootstrap-switch-handle-on, .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-label,
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-handle-off,
+.bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off .bootstrap-switch-handle-on {
+  padding: 5px 10px; }
+
+#card-headings .custom-control .custom-control-label::before, #card-headings .custom-control .custom-control-label::after {
+  left: -1.5rem; }
+
+/****Switch************************************************************************************/

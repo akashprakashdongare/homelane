@@ -1,0 +1,149 @@
+
+
+
+.chat-scroll {
+    height: 66vh;
+    overflow: hidden;
+    overflow: auto;
+  }
+  .list-group-item.active {
+  color: #0e141e;
+  background-color: #f5f7fa;
+  border-color: #dddddd;
+  }
+  .lead-title {
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 500;
+    color: #f57f19;
+    font-size: 1.3rem;
+    /* text-shadow: 0px 6px 5px rgb(207 207 207); */
+  }
+  .lead-quetion {
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 500;
+    color: #2c2b2c;
+    font-size: 1rem;
+    /* text-shadow: 0px 6px 5px rgb(207 207 207); */
+  }
+  .lead-header-title {
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 500;
+    color: #2c2b2c;
+    font-size: 1.3rem;
+    text-shadow: 0px 6px 5px rgb(207 207 207);
+  }
+  /* .lead-list .list-group-item {
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  } */
+  .lead-list .list-group-item.active, .lead-list .list-group-item.active:focus, .lead-list .list-group-item:hover {
+  /* border: 1px solid #c6a150; */
+  background-color: #fff9eb;
+  border-color: #ffde8c;
+  /* -webkit-box-shadow: 0px 4px 38px -16px rgba(197,199,201,1);
+  -moz-box-shadow: 0px 4px 38px -16px rgba(197,199,201,1);
+  box-shadow: 0px 4px 38px -16px rgba(197,199,201,1); */
+  }
+  .card-header .heading-elements, .card-header .heading-elements-toggle {
+    top: 13px;
+    right: 21px;
+  }
+  
+  .chat-application .chat-container {
+    position: relative;
+    height: calc(var(--vh, 1vh) * 100 - 14.7rem);
+    text-align: center;
+    padding: 1.4rem; }
+  
+  .chat-application .chat-start {
+    height: calc(var(--vh, 1vh) * 100 - 6rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .chat-application .chat-window-wrapper .chat-start .chat-start-icon,
+    .chat-application .chat-window-wrapper .chat-start .chat-start-text {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08) !important;
+      cursor: pointer; }
+    .chat-application .chat-window-wrapper .chat-start .chat-start-text {
+      border-radius: calc(0.25rem * 5); }
+    .chat-application .chat-window-wrapper .chat-start .chat-start-icon {
+      border-radius: 50%;
+      background-color: #fff; }
+  
+  .chat-application .chat-content .chat-body {
+    overflow: hidden;
+    margin: 0.67rem 2rem 0 0; }
+    .chat-application .chat-content .chat-body .chat-message {
+      position: relative;
+      float: right;
+      text-align: right;
+      padding: 0.75rem 1rem;
+      margin: 0 1.33rem 1.8rem 0.3rem;
+      clear: both;
+      word-break: break-word;
+      color: #fff;
+      background: #00b5b8;
+      border-radius: 0.25rem;
+      box-shadow: 0 2px 4px 0 rgba(0, 181, 184, 0.6); }
+      .chat-application .chat-content .chat-body .chat-message p {
+        margin-bottom: 0; }
+      .chat-application .chat-content .chat-body .chat-message .chat-time {
+        position: absolute;
+        bottom: -20px;
+        right: 0px;
+        color: #404e67;
+        font-size: 0.8rem;
+        white-space: nowrap; }
+  
+  .chat-application .chat-content .chat-avatar {
+    float: right; }
+  
+  .chat-application .chat-content .chat-left .chat-avatar {
+    float: left; }
+  
+  .chat-application .chat-content .chat-left .chat-message {
+    text-align: left;
+    float: left;
+    margin: 0 0.3rem 1.8rem 1.3rem;
+    color: #404e67;
+    background-color: #fafbfb;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3); }
+  
+  .chat-application .chat-content .badge {
+    background-color: #ccc;
+    color: #404e67; }
+  
+  .chat-application .chat-profile {
+    /* chat profile right sidebar */
+    height: calc(var(--vh, 1vh) * 100 - 6.2rem);
+    width: 300px;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #fff;
+    position: absolute;
+    transform: translateX(110%);
+    transition: all 0.3s ease;
+    z-index: 3;
+    right: 1.8rem;
+    bottom: 0;
+    opacity: 0; }
+    .chat-application .chat-profile.show {
+      opacity: 1;
+      transform: translateX(8%); }
+    .chat-application .chat-profile .chat-profile-header .chat-profile-close {
+      position: absolute;
+      top: 14px;
+      right: 13px;
+      cursor: pointer; }
+    .chat-application .chat-profile .chat-profile-content {
+      position: relative;
+      height: calc(var(--vh, 1vh) * 100 - 22.8rem); }
+  
+  .chat-application img.round {
+    border-radius: 3.65rem; }
+  
+    .chat-application .chat-content .chat-left .chat-message .chat-time {
+        left: 0px;
+        }

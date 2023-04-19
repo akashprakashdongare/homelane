@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="fa-solid fa-people-carry-box text-warning"></i> Dispatch </h3>
+        </div>
+        
+    </div>
+    <div class="content-body">
+      <div class="card mb-0">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="dispatchlist" class="table table-sm table-bordered table-hover mb-0" style="width:100%;">
+              <thead>
+                <tr>
+                  <th class="text-center">Action</th>
+                  <th class="text-center">Po No</th>
+                  <th class="text-center">Lr No</th>
+                  <th class="text-center">Lr Date</th>
+                  <th class="text-center">Invoice No</th>
+                  <th class="text-center">Invoice Date</th>
+                  <th class="text-center">Transporter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dispatchOrderList">
+                  <td class="text-center"><a (click)="view(item)" class="btn-link mr-50" title="View"><i class="feather icon-eye font-medium-1 "></i></a></td>
+                  <td class="text-center">{{item.pono}}</td>
+                  <td class="text-center">{{item.lrNo}}</td>
+                  <td class="text-center">{{item.lrDate}}</td>
+                  <td class="text-center">{{item.invoiceNo}}</td>
+                  <td class="text-center">{{item.invoiceDate}}</td>
+                  <td class="text-center">{{item.transporter}}</td>
+                </tr>
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

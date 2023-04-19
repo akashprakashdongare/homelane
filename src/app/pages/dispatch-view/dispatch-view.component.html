@@ -1,0 +1,78 @@
+<div class="content-wrapper">
+    <div class="content-header row mb-2">
+        <div class="content-header-left col-md-6 col-12 mb-1">
+            <h3 class="content-header-title mb-0"><i class="feather icon-users text-warning"></i> Dispatch Details</h3>
+        </div>
+        <!-- <div class="content-header-right text-md-right col-md-6 col-12 mb-md-0 mb-0">
+          <div class="form-group mb-0">
+              <a class="btn btn-outline-primary" data-toggle="modal" data-target="#createquery"><i class="feather icon-plus-square fa-lg"></i> Raise Query</a>
+          </div>
+        </div> -->
+    </div>
+    <div class="content-body">
+      <div class="card mb-0">
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Quotation No. :</b> {{quotationView.quotationNo}}</label>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Creation Date :</b> {{quotationView.openingDate}}</label>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4">
+              <div class="form-group mb-50">
+                <label><b>Expiry Date :</b> {{quotationView.closeDate}}</label>
+              </div>
+            </div> -->
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table id="dispatchlistView" class="table table-sm table-bordered table-hover mb-0" style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th style="width:12%;" class="text-center">Po No</th>
+                      <th style="width:12%;" class="text-center">Material Code</th>
+                      <th style="width:12%;" class="text-right">Dispatch Qty</th>
+                      <th style="width:16%;" class="text-right">Item No</th>
+                      <th style="width:11%;" class="text-center">Created On</th>
+                      <!-- <th style="width:11%;" class="text-center">Freight</th>
+                      <th style="width:11%;" class="text-center">Est Del Date</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of dispatchView">
+                      <td class="text-center">{{item.poNo}}</td>
+                      <td class="text-center">{{item.materialCode}}</td>
+                      <td class="text-right">{{item.dispatchQty}}</td>
+                      <td class="text-right">{{item.itemNo}}</td>
+                      <td class="text-center">{{item.createdOn}}</td><!--new aaded-->
+                      <!-- <td class="p-50"><input type="number" (change)="priceChange(item)"  [(ngModel)]="item.tempprice" class="form-control form-control-sm text-right"/></td>
+                      <td class="p-50"><input type="text" [(ngModel)]="item.freight" class="form-control form-control-sm text-right"/></td> -->
+
+                      <!-- <td class="p-50"><input type="text" [(ngModel)]="item.tempestDelDate" class="form-control form-control-sm"
+                        bsDatepicker [bsConfig]="datePickerConfig" autocomplete="off" name="" readonly /></td> -->
+                    </tr>
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer p-50">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-light round btn-min-width  mr-50" (click)='back()'>Back</button>
+
+              <!-- <button type="button" class="btn btn-secondary round btn-min-width btn-darken-2 shadow mr-50" (click)='back()'>Back</button> -->
+              <!-- <button type="submit" (click)="submitResult()" class="btn btn-success round btn-min-width btn-darken-1 shadow">Submit</button> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
